@@ -20,7 +20,7 @@ export default function Login() {
 
   const onLogin = async () => {
     try {
-      const res = await axios.post("/api/signup", user);
+      const res = await axios.post("/api/users/login", user);
       if (res.status === 200) {
         router.push("/login");
       }

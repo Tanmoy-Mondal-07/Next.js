@@ -21,12 +21,13 @@ export default function Signup() {
 
   const onSignup = async () => {
     try {
-      const res = await axios.post("/api/signup", user);
+      const res = await axios.post("/api/users/signup", user);
+      console.log(res);
       if (res.status === 200) {
         router.push("/login");
       }
     } catch (err) {
-      console.error("Signup failed:", err);
+      console.log("Signup failed:", err);
     }
   };
 
