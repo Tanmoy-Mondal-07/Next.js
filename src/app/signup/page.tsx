@@ -26,8 +26,8 @@ export default function Signup() {
       if (res.status === 200) {
         router.push("/login");
       }
-    } catch (err) {
-      console.log("Signup failed:", err);
+    } catch (err:any) {
+      console.log("Signup failed:", err.response.data.error);
     }
   };
 

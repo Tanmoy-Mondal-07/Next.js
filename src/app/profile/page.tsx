@@ -10,7 +10,7 @@ function ProfilePage() {
 
   useEffect(() => {
     const getUserDetails = async () => {
-      const res = await axios.get('/api/user/me')
+      const res = await axios.get('/api/users/me')
       console.log(res.data);
       setdata(res.data.data._id)
     }
@@ -27,7 +27,7 @@ function ProfilePage() {
   }
   return (
     <>
-      <div>{data ? <Link href={`/profile/${data}`}></Link> : 'Error "No user id found"'}</div>
+      <div>{data ? <Link href={`/profile/${data}`}>{data}</Link> : 'Error "No user id found"'}</div>
       <button
         onClick={logout}
       >logout</button>

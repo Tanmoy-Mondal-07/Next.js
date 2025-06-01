@@ -16,14 +16,15 @@ export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json()
         const { email, password } = reqBody
+        console.log(reqBody);
 
-        const user = User.findOne({ email })
+        const user = await User.findOne({ email })
 
         if (!user) {
             return NextResponse.json({ error: "user dosent exist plzz signup" }, { status: 400 })
         }
 
-        const validPassword: Boolean = await bcryptjs.compare(password, user.password)
+        const validPassword = await bcryptjs.compare(password, user.password)
         if (!validPassword) {
             return NextResponse.json({ error: "invalid password" }, { status: 400 })
         }
