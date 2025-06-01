@@ -22,7 +22,7 @@ export default function Login() {
     try {
       const res = await axios.post("/api/users/login", user);
       if (res.status === 200) {
-        router.push("/login");
+        router.push("/profile");
       }
     } catch (err) {
       console.error("Signup failed:", err);
