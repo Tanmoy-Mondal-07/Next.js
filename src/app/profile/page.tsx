@@ -1,11 +1,23 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 function ProfilePage() {
   const router = useRouter()
-  const logout=async()=>{
+  const [data, setdata] = useState("")
+
+  useEffect(() => {
+    const getUserDetails = async () => {
+      const res = await axios.get('/api/user/me')
+      console.log(res.data);
+      setdata(res.data.data._id)
+    }
+    getUserDetails()
+  }, [])
+
+  const logout = async () => {
     try {
       await axios.get('api/users/logout')
       router.push('/login')
@@ -15,9 +27,9 @@ function ProfilePage() {
   }
   return (
     <>
-      <div>Error "No user id found"</div>
+      <div>{data ? <Link href={`/profile/${data}`}></Link> : 'Error "No user id found"'}</div>
       <button
-      onClick={logout}
+        onClick={logout}
       >logout</button>
     </>
   )
