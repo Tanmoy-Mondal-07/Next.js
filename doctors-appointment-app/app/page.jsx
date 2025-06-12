@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { creditBenefits, features, testimonials } from "@/lib/data";
+import Pricing from "@/components/Pricing"
 import { ArrowRight, Stethoscope } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -108,9 +109,8 @@ export default function Home() {
 
           <div className="mx-auto">
             {/* Clerk Pricing Table */}
-            {/* <Pricing /> */}
+            <Pricing />
 
-            {/* Description */}
             <Card className="mt-12 bg-muted/20 border-emerald-900/30">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold text-white flex items-center">

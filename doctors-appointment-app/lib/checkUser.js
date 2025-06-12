@@ -2,7 +2,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { db } from "./prisma";
 
 export const checkUser = async () => {
-  const user = await currentUser();
+  const user = await currentUser() || null
   // console.log(user);
 
   if (!user) {
