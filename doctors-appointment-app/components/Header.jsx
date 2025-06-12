@@ -5,9 +5,13 @@ import React from 'react'
 import { Button } from './ui/button'
 import { checkUser } from '@/lib/checkUser'
 import { Calendar, ShieldCheck, Stethoscope, User } from 'lucide-react'
+import { checkAndAllocateCredits } from '@/actions/credits'
 
 async function Header() {
     const user = await checkUser();
+    if (user?.role === "PATIENT") {
+        await checkAndAllocateCredits(user)
+    }
 
     return (
         <header className='fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-10 supports-[backdrop-filter]:bg-background/60'>
