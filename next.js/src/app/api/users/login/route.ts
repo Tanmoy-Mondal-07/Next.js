@@ -44,6 +44,7 @@ export async function POST(request: NextRequest) {
         responce.cookies.set("token", token, { httpOnly: true })
 
         return responce;
+        
 
     } catch (error: any) {
         return NextResponse.json({ error: error.message }, { status: 500 })
