@@ -6,9 +6,9 @@ import { revalidatePath } from "next/cache";
 import { format } from "date-fns";
 
 const PLAN_CREDITS = {
-  free_user: 0, 
-  standard: 10, 
-  premium: 24, 
+  free_user: 0,
+  standard: 10,
+  premium: 24,
 };
 
 const APPOINTMENT_CREDIT_COST = 2;

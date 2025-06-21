@@ -26,9 +26,8 @@ export default async function VerificationPage() {
         <Card className="border-emerald-900/20">
           <CardHeader className="text-center">
             <div
-              className={`mx-auto p-4 ${
-                isRejected ? "bg-red-900/20" : "bg-amber-900/20"
-              } rounded-full mb-4 w-fit`}
+              className={`mx-auto p-4 ${isRejected ? "bg-red-900/20" : "bg-amber-900/20"
+                } rounded-full mb-4 w-fit`}
             >
               {isRejected ? (
                 <XCircle className="h-8 w-8 text-red-400" />
