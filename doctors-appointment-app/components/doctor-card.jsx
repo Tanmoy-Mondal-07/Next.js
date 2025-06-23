@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, CardContent } from './ui/card'
-import { User } from 'lucide-react'
+import { Calendar, User } from 'lucide-react'
+import { Button } from './ui/button'
+import Link from 'next/link'
 
 function DoctorCard({ doctor }) {
     return (
@@ -22,6 +24,12 @@ function DoctorCard({ doctor }) {
                     <div className='mt-4 line-clamp-2 text-sm text-muted-foreground mb-4'>
                         {doctor.description}
                     </div>
+                    <Button asChild className="w-full bg-emerald-500 hover:bg-emerald-600 mt-2" >
+                        <Link href={`/doctors/${doctor.speciality}/${doctor.id}`}>
+                            <Calendar className='h-4 w-4 mr-2' />
+                            View Profile & Book
+                        </Link>
+                    </Button>
                 </div>
             </CardContent>
 
