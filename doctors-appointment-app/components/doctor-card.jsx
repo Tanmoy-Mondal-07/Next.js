@@ -14,6 +14,10 @@ function DoctorCard({doctor}) {
                         <User className='h-6 w-6 text-emerald-400'/>
                     )}
                 </div>
+
+                <div className=''>
+                    {doctor.description}
+                </div>
             </div>
         </CardContent>
 
