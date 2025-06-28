@@ -376,6 +376,7 @@ export function AppointmentCard({
                             </Badge>
                         </div>
 
+
                         {appointment.patientDescription && (
                             <div className="space-y-2">
                                 <h4 className="text-sm font-medium text-muted-foreground">
