@@ -1,5 +1,6 @@
 import { z } from 'zod'
 
-export const signInSchema = ({
-    code: z.string().length(6, "Verification code must be 6 degits")
+export const signInSchema = z.object({
+    identifier: z.string(),
+    password: z.string()
 })
