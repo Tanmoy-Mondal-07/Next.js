@@ -56,9 +56,15 @@ export async function POST(request: Request) {
         if (!emailResponse.success) {
             return Response.json({
                 success: false,
-                message: "fail to send email"
+                message: "Please verify your email"
             }, { status: 500 })
         }
+
+        return Response.json({
+            success: true,
+            message: emailResponse.message
+        }, { status: 201 })
+
 
     } catch (error) {
         console.log('error regestring user :: ', error);
