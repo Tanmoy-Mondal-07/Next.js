@@ -11,17 +11,44 @@ export const authOptions: NextAuthOptions = {
             id: "credentials",
             name: "Credentials",
             credentials: {
-                email: { label: "Email", type: "text"},
+                email: { label: "Email", type: "text" },
                 password: { label: "Password", type: "password" }
             },
-            async authorize(credentials:any):Promise<any>{
+            async authorize(credentials: any): Promise<any> {
                 await dbConnect()
                 try {
-                    
-                } catch (error:any) {
+                    const user = await UserModel.findOne({
+                        $or: [
+                            { email: credentials.identifier },
+                            { username: credentials.identifier }
+                        ]
+                    })
+
+                    if (!user) {
+                        throw new Error('no user found with this email')
+                    }
+
+                    if (!user.isVerified) {
+                        throw new Error('please verify your account')
+                    }
+
+                    const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password)
+                    if (isPasswordCorrect) {
+                        return user
+                    } else {
+                        throw new Error("incorrect password")
+                    }
+                } catch (error: any) {
                     throw new Error(error)
                 }
             }
         })
-    ]
+    ],
+    pages: {
+        signIn: '/sign-in'
+    },
+    session: {
+        strategy: "jwt"
+    },
+    secret: process.env.NEXTAUTN_SECRET
 }
