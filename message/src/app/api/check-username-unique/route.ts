@@ -8,6 +8,14 @@ const UsernameQuerySchema = z.object({
 })
 
 export async function GET(request: Request) {
+    //do this in all routs
+    if (request.method !== 'GET') {
+        return Response.json({
+            success: false,
+            message: 'only get method is allowed',
+        }, { status: 400 })
+    }
+
     await dbConnect()
 
     try {
@@ -44,7 +52,6 @@ export async function GET(request: Request) {
             message: 'username is unique',
         }, { status: 200 })
 
-        
     } catch (error) {
         console.log("Error while checking username :: ", error);
         return Response.json({
