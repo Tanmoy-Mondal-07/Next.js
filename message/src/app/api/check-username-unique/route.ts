@@ -8,12 +8,11 @@ const UsernameQuerySchema = z.object({
 })
 
 export async function GET(request: Request) {
-    //do this in all routs
     if (request.method !== 'GET') {
         return Response.json({
             success: false,
             message: 'only get method is allowed',
-        }, { status: 400 })
+        }, { status: 405 })
     }
 
     await dbConnect()
