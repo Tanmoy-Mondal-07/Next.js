@@ -22,7 +22,21 @@ export async function POST(request: Request) {
                 message: "User is not accepting the messages"
             }, { status: 403 })
         }
-    } catch (error) {
 
+        const newMessage = { content, createdAt: new Date() }
+
+        user.message.push(newMessage as Message)
+        await user.save()
+
+        return Response.json({
+            success: true,
+            message: "message sent successfully"
+        }, { status: 200 })
+    } catch (error) {
+        console.log("send message error :: ", error);
+        return Response.json({
+            success: false,
+            message: "Server error"
+        }, { status: 500 })
     }
 }
