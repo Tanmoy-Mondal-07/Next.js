@@ -17,12 +17,10 @@ export async function POST(req: Request) {
 
         return result.toUIMessageStreamResponse();
     } catch (error) {
-
         console.log("AI error :: ", error);
         return Response.json({
             success: false,
             message: "internal AI Server error"
         }, { status: 500 })
-
     }
 }
