@@ -16,13 +16,20 @@ function page() {
   const [isCheckingUserName, setIsCheckingUserName] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const debouncedUsername = useDebounceValue(username,300)
+  const debouncedUsername = useDebounceValue(username, 300)
   const router = useRouter()
 
   //zod imple
-  const form = useForm({
-    resolver:zodResolver(signUpSchema)
+  const form = useForm<z.infer<typeof signUpSchema>>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      username: '',
+      email: '',
+      password: ''
+    }
   })
+
+  username
   return (
     <div>page</div>
   )
