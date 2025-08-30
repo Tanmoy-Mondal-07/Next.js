@@ -52,6 +52,39 @@ function page() {
 
   }, [debouncedUsername])
 
+  const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
+    setIsSubmitting(true)
+    try {
+      const response = await axios.post<ApiResponse>('/api/sign-up', data)
+
+      toast("Success", {
+        description: response.data.message,
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo"),
+        },
+      })
+
+      router.replace(`/verify/${username}`)
+      setIsSubmitting(false)
+
+    } catch (error) {
+      console.log("error in signup user");
+      setIsSubmitting(false)
+      const axiosError = error as AxiosError<ApiResponse>;
+      let errorMassage = axiosError.response?.data.message
+
+      toast.error("sign up faild", {
+        description: errorMassage,
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo"),
+        },
+      })
+      
+    }
+  }
+
   return (
     <div>page</div>
   )
