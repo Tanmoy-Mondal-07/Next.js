@@ -11,7 +11,9 @@ import { useRouter } from 'next/navigation'
 import { signUpSchema } from '@/schemas/signUpSchema'
 import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
-import { Form } from '@/components/ui/form'
+import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
 function page() {
   const [username, setUsername] = useState('')
@@ -98,7 +100,7 @@ function page() {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
-              name="identifier"
+              name="username"
               control={form.control}
               render={({ field }) => (
                 <FormItem>
