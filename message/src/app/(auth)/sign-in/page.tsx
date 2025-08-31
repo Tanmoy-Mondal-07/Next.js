@@ -81,7 +81,7 @@ function page() {
           onClick: () => console.log("Undo"),
         },
       })
-      
+      setIsSubmitting(false)
     }
   }
 
