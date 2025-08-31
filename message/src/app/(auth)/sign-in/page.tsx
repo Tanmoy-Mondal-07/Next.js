@@ -104,7 +104,7 @@ function page() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email/Username</FormLabel>
+                  <FormLabel>Username</FormLabel>
                   <Input {...field} />
                   <FormMessage />
                 </FormItem>
