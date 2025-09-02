@@ -59,7 +59,7 @@ function page() {
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     setIsSubmitting(true)
     try {
-      const response = await axios.post<ApiResponse>('/api/sign-up', data)
+      const response = await axios.post<ApiResponse>('/api/sign-in', data)
 
       toast("Success", {
         description: response.data.message,
@@ -78,7 +78,7 @@ function page() {
       const axiosError = error as AxiosError<ApiResponse>;
       let errorMassage = axiosError.response?.data.message
 
-      toast.error("sign up faild", {
+      toast.error("sign in faild", {
         description: errorMassage,
         action: {
           label: "Undo",
@@ -130,7 +130,7 @@ function page() {
                 </FormItem>
               )}
             />
-            <Button className='w-full' disabled={isSubmitting} type="submit">{isSubmitting ? <> <Loader2 /> Please wait</> : ("Sign In")}</Button>
+            <Button className='w-full' disabled={isSubmitting} type="submit">{isSubmitting ? <> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait</> : ("Sign In")}</Button>
           </form>
         </Form>
         <div className="text-center mt-4">
