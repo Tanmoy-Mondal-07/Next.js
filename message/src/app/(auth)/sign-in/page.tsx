@@ -96,7 +96,7 @@ function page() {
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
             Welcome Back to True Feedback
           </h1>
-          <p className="mb-4">Sign in to continue your secret conversations</p>
+          <p className="mb-4">Sign in to continue</p>
         </div>
         <Form {...form}>
 
