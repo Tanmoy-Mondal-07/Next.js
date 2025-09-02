@@ -45,7 +45,7 @@ export default function SignUpForm() {
         const checkUsernameUnique = async () => {
             if (debouncedUsername) {
                 setIsCheckingUsername(true);
-                setUsernameMessage(''); // Reset message
+                setUsernameMessage('')
                 try {
                     const response = await axios.get<ApiResponse>(
                         `/api/check-username-unique?username=${debouncedUsername}`
@@ -85,7 +85,7 @@ export default function SignUpForm() {
 
             const axiosError = error as AxiosError<ApiResponse>;
 
-            // Default error message
+            // Default error
             let errorMessage = axiosError.response?.data.message;
             ('There was a problem with your sign-up. Please try again.');
 
