@@ -130,7 +130,7 @@ function page() {
                 </FormItem>
               )}
             />
-            <Button className='w-full' disabled={isSubmitting} type="submit">{isSubmitting ? <> <Loader2 /></> : ("Sign In")}</Button>
+            <Button className='w-full' disabled={isSubmitting} type="submit">{isSubmitting ? <> <Loader2 /> Please wait</> : ("Sign In")}</Button>
           </form>
         </Form>
         <div className="text-center mt-4">
