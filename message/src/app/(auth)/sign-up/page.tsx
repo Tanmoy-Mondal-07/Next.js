@@ -28,7 +28,7 @@ export default function SignUpForm() {
     const [usernameMessage, setUsernameMessage] = useState('');
     const [isCheckingUsername, setIsCheckingUsername] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const debouncedUsername = useDebounceValue(username, 300)
+    const [debouncedUsername] = useDebounceValue(username, 600);
 
     const router = useRouter();
 
@@ -42,6 +42,7 @@ export default function SignUpForm() {
     });
 
     useEffect(() => {
+        // console.log("username chacking");
         const checkUsernameUnique = async () => {
             if (debouncedUsername) {
                 setIsCheckingUsername(true);
@@ -52,6 +53,7 @@ export default function SignUpForm() {
                     );
                     setUsernameMessage(response.data.message);
                 } catch (error) {
+                    console.log(error);
                     const axiosError = error as AxiosError<ApiResponse>;
                     setUsernameMessage(
                         axiosError.response?.data.message ?? 'Error checking username'

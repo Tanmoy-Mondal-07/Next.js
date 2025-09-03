@@ -8,12 +8,12 @@ const UsernameQuerySchema = z.object({
 })
 
 export async function GET(request: Request) {
-    if (request.method !== 'GET') {
-        return Response.json({
-            success: false,
-            message: 'only get method is allowed',
-        }, { status: 405 })
-    }
+    // if (request.method !== 'GET') {
+    //     return Response.json({
+    //         success: false,
+    //         message: 'only get method is allowed',
+    //     }, { status: 405 })
+    // }
 
     await dbConnect()
 
@@ -22,6 +22,7 @@ export async function GET(request: Request) {
         const queryParam = {
             username: searchParams.get('username')
         }
+        // console.log(queryParam);
 
         //validet with zod
         const result = UsernameQuerySchema.safeParse(queryParam)
