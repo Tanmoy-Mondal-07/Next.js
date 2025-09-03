@@ -89,7 +89,7 @@ export default function SignUpForm() {
             let errorMessage = axiosError.response?.data.message;
             ('There was a problem with your sign-up. Please try again.');
 
-            toast.error("sign in faild", {
+            toast.error("sign up faild", {
                 description: errorMessage,
                 action: {
                     label: "Undo",
