@@ -127,7 +127,7 @@ export default function SignUpForm() {
                                             setUsername(e.target.value);
                                         }}
                                     />
-                                    {isCheckingUsername && <Loader2 className="animate-spin" />}
+                                    {isCheckingUsername && <Loader2 size={15} className="animate-spin" />}
                                     {!isCheckingUsername && usernameMessage && (
                                         <p
                                             className={`text-sm ${usernameMessage === 'Username is unique'
