@@ -17,11 +17,11 @@ function Navbar() {
                 {
                     session ? (
                         <>
-                            <span className="mr-4">Welcome, {user.username || user.email}</span>
+                            <span className="mr-4">Welcome, {user?.username || user?.email}</span>
                             <Button onClick={() => signOut()} className="w-full md:w-auto bg-slate-100 text-black" variant='outline'>Logout</Button>
                         </>
                     ) : (
-                        <Link href='/sigm-in'><Button className="w-full md:w-auto bg-slate-100 text-black" variant={'outline'}>Login</Button></Link>
+                        <Link href='/sign-in'><Button className="w-full md:w-auto bg-slate-100 text-black" variant={'outline'}>Login</Button></Link>
                     )
                 }
             </div>
