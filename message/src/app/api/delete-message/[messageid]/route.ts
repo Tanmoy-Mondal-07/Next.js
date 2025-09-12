@@ -36,7 +36,7 @@ export async function DELETE(request: Request, { params }: { params: { messageid
         }, { status: 200 })
 
     } catch (error) {
-        console.log("error in dlete massage rout",error);
+        console.log("error in dlete massage rout", error);
         return Response.json({
             success: false,
             message: "somthing went wrong"
