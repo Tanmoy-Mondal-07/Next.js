@@ -49,7 +49,11 @@ function page() {
     try {
       const responce = await axios.get<ApiResponse>('/api/get-messages')
       setMessages(responce.data.messages || [])
-
+      if (refresh) {
+        toast("refreshed masages", {
+          description: "showin letest massages"
+        })
+      }
     } catch (error) {
       console.log();
     }
