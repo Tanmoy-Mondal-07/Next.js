@@ -49,8 +49,9 @@ function page() {
     try {
       const responce = await axios.get<ApiResponse>('/api/get-messages')
       setMessages(responce.data.messages || [])
+
     } catch (error) {
-      
+      console.log();
     }
   }, [])
 
