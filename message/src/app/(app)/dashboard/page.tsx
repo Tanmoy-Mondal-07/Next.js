@@ -70,9 +70,27 @@ function page() {
 
     fetchMessages()
     fetchAcceptMessage()
-    
+
   }, [session, setValue, fetchAcceptMessage, fetchMessages])
 
+  //handel switch change
+  const handleSwitchChange = async () => {
+    try {
+      const responce = await axios.post<ApiResponse>('/api/accept-messages', {
+        acceptMessages: !acceptMessages
+      })
+      setValue('acceptMessages', !acceptMessages)
+
+      toast(responce.data.message, {
+        description: ""
+      })
+    } catch (error) {
+      const axiosError = error as AxiosError<ApiResponse>
+      toast.error("Error", {
+        description: axiosError.response?.data.message || "Faild to fetch message settings"
+      })
+    }
+  }
 
   return (
     <div>page</div>
