@@ -5,7 +5,7 @@ import { ApiResponse } from '@/types/ApiResponse'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
 import { useSession } from 'next-auth/react'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -55,9 +55,24 @@ function page() {
         })
       }
     } catch (error) {
-      console.log();
+      const axiosError = error as AxiosError<ApiResponse>
+      toast.error("Error", {
+        description: axiosError.response?.data.message || "Faild to fetch message settings"
+      })
+    } finally {
+      setIsLoading(false)
+      setIsSwitchLoading(false)
     }
-  }, [])
+  }, [setIsLoading, setMessages])
+
+  useEffect(() => {
+    if (!session || !session.user) return
+
+    fetchMessages()
+    fetchAcceptMessage()
+    
+  }, [session, setValue, fetchAcceptMessage, fetchMessages])
+
 
   return (
     <div>page</div>
