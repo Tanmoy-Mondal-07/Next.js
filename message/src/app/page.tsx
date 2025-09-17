@@ -55,9 +55,9 @@ export default function Home() {
         </Carousel>
       </main>
 
-      {/* <footer className="text-center p-4 md:p-6 bg-gray-900 text-white">
+      <footer className="text-center p-4 md:p-6 bg-gray-900 text-white">
         
-      </footer> */}
+      </footer>
     </>
   );
 }
