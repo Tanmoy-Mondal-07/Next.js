@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="254.000000pt" viewBox="0 0 300.000000 254.000000" preserveAspectRatio="xMidYMid meet" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="inner-shadow-filter-0" bx:preset="inner-shadow 1 0 0 17 0.74 #9b0020b3" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur stdDeviation="17"/>
+      <feComposite operator="out" in="SourceGraphic"/>
+      <feComponentTransfer result="choke">
+        <feFuncA type="linear" slope="1.48"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#9b0020b3" result="color"/>
+      <feComposite operator="in" in="color" in2="choke" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(0.967255, 0, 0, -0.937572, -508.53725, 857.254425)" fill="red" stroke="red" style="filter: url(&quot;#inner-shadow-filter-0&quot;);">
+    <path d="M 608 898 C 588 891 580 881 580 864 C 580 848 572 836 555 828 C 518 811 524 792 584 734 C 636 683 707 650 762 650 C 780 650 780 652 758 682 C 740 708 735 711 732 697 C 724 659 763.145 697.597 722.145 753.597 C 708.145 772.597 672.206 692.703 676.225 695.678 C 699.778 713.112 784.255 667.363 762.876 692.523 C 710.684 753.947 776.503 731.018 787.837 722.533 C 816.086 701.386 748.416 822.097 803 760 C 836.224 722.202 832.767 741.288 815 767 C 765.584 838.513 712 911 660 909 C 646 909 623 904 608 898 Z" style="stroke: none; fill: rgb(255, 104, 139);"/>
+  </g>
+</svg>
