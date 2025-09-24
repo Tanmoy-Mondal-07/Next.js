@@ -4,14 +4,6 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useLoader } from '@react-three/fiber';
 import { TextureLoader, Vector3 } from 'three';
-import iconsvg1 from '@../assets/001.svg';
-import iconsvg2 from '@../assets/002.svg';
-import iconsvg3 from '@../assets/003.svg';
-import iconsvg4 from '@../assets/004.svg';
-import iconsvg5 from '@../assets/005.svg';
-import iconsvg6 from '@../assets/006.svg';
-import iconsvg7 from '@../assets/007.svg';
-import iconsvg8 from '@../assets/008.svg';
 
 const Particle = ({ texture, initialPosition, speed }) => {
     const ref = useRef();
@@ -61,7 +53,17 @@ const Particle = ({ texture, initialPosition, speed }) => {
 
 const BackgroundParticles = () => {
     const { viewport } = useThree();
-    const textures = useLoader(TextureLoader, [iconsvg1, iconsvg2, iconsvg3, iconsvg4, iconsvg5, iconsvg6, iconsvg7, iconsvg8]);
+    const textures = useLoader(TextureLoader, [
+        '/icons/001.svg',
+        '/icons/002.svg',
+        '/icons/003.svg',
+        '/icons/004.svg',
+        '/icons/005.svg',
+        '/icons/006.svg',
+        '/icons/007.svg',
+        '/icons/008.svg',
+    ]);
+
 
     const particleCount = 50;
     const particles = useMemo(() => {
