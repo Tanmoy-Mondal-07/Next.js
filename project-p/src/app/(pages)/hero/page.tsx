@@ -276,10 +276,7 @@ function Hero() {
                 </span>
               </h2>
               <div className="w-24 h-1 bg-zinc-700 mx-auto rounded-full"></div>
-              {/* <p className="mt-6 text-gray-600 max-w-2xl mx-auto">
-                A showcase of my recent work, demonstrating my skills in frontend development, UI/UX design, and
-                problem-solving.
-              </p> */}
+              
             </motion.div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
